@@ -38,7 +38,7 @@
                         /* 登录的请求 */
                         this.postKeyValueRequest('/doLogin', this.loginForm).then(resp => {
                             if (resp) {
-                                window.sessionStorage.setItem("user", JSON.stringify(resp.obj));
+                                window.sessionStorage.setItem("user", JSON.stringify(resp.data));
                                 setTimeout(()=>{
                                     /* 跳转页面 */
                                     this.$router.replace("/home");
