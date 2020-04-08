@@ -20,7 +20,7 @@ export const formatRoutes = (routes) => {
             component,
             name,
             meta,
-            iconCls,
+            icon,
             children
         } = router;
         if (children && children instanceof Array) {
@@ -29,7 +29,7 @@ export const formatRoutes = (routes) => {
         let fmRouter = {
             path: path,
             name: name,
-            iconCls: iconCls,
+            icon: icon,
             meta: meta,
             children: children,
             component(resolve) {

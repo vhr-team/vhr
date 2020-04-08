@@ -17,14 +17,14 @@
                       :class="menuitemClasses"
                       accordion
                 >
-
                     <template v-for="(item, componentIndex) in routes">
+
                         <!-- 展开并且有子菜单 -->
                         <Submenu v-if="!isCollapsed && item.children.length" v-bind:key="componentIndex"
                                  :name="componentIndex">
                             <template slot="title">
                                 <!-- 图标 -->
-                                <Icon :type="item.iconCls"/>
+                                <Icon :type="item.icon"/>
                                 <!-- 菜单名称 -->
                                 <span>{{ item.name }}</span>
                             </template>
@@ -35,7 +35,7 @@
                                       :to="children.path"
                             >
                                 <!-- 子菜单图标 -->
-                                <Icon :type="children.iconCls"/>
+                                <Icon :type="children.icon"/>
                                 <!-- 子菜单名称 -->
                                 {{ children.name }}
                             </MenuItem>
@@ -43,7 +43,7 @@
 
                         <!-- 展开但没有子菜单 -->
                         <MenuItem v-else-if="!isCollapsed" :name="item.to" :to="item.path" v-bind:key="componentIndex">
-                            <Icon :type="item.iconCls"/>
+                            <Icon :type="item.icon"/>
                             <span>{{ item.name }}</span>
                         </MenuItem>
 
@@ -51,14 +51,14 @@
                         <Dropdown v-else-if="isCollapsed && item.children.length" v-bind:key="componentIndex"
                                   placement="right-start" class="menu-dropdown">
                             <MenuItem :name="item.path" :to="item.path">
-                                <Icon :type="item.iconCls"/>
+                                <Icon :type="item.icon"/>
                                 <span>{{ item.name }}</span>
                             </MenuItem>
                             <DropdownMenu slot="list">
                                 <DropdownItem v-for="(children, index) in item.children" :key="index"
                                               style="padding: 0 0; background-color:#515a6e;">
                                     <MenuItem :name="children.path" :to="children.path">
-                                        <Icon :type="children.iconCls"/>
+                                        <Icon :type="children.icon"/>
                                         {{ children.name }}
                                     </MenuItem>
                                 </DropdownItem>
@@ -68,8 +68,8 @@
                         <!-- 不展开无子菜单 -->
                         <Tooltip v-else-if="isCollapsed" :content="item.name" placement="right"
                                  v-bind:key="componentIndex">
-                            <MenuItem :name="item.path" :to="item.path"
-                                <Icon :type="item.iconCls"/>
+                            <MenuItem :name="item.path" :to="item.path">
+                                <Icon :type="item.icon"/>
                                 <span>{{ item.name }}</span>
                             </MenuItem>
                         </Tooltip>
@@ -135,7 +135,7 @@
                     this.isCollapsed ? 'collapsed-menu' : ''
                 ]
             },
-            routes(){
+            routes() {
                 return this.$store.state.routes;
             }
         },
@@ -155,7 +155,7 @@
                     }).then(() => {
                         this.getRequest("/logout");
                         window.sessionStorage.removeItem("user");
-                        this.$store.commit("initRoutes",[]);
+                        this.$store.commit("initRoutes", []);
                         this.$router.replace("/");
                     }).catch(() => {
                         this.$message({

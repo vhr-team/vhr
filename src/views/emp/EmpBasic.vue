@@ -1,6 +1,6 @@
 <template>
     <div>
-        basic
+        basic大萨达所多撒
     </div>
 </template>
 
