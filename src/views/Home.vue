@@ -153,7 +153,7 @@
                         cancelButtonText: '取消',
                         type: 'warning'
                     }).then(() => {
-                        this.getRequest("/logout");
+                        this.getRequest("/permission/logout");
                         window.sessionStorage.removeItem("user");
                         this.$store.commit("initRoutes", []);
                         this.$router.replace("/");

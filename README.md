@@ -22,9 +22,9 @@ npm run build
 ├── public  打包所需静态资源
 └── src
     ├── utils  工具函数
-    └── assets  项目静态资源
     ├── components  业务组件
     ├── router  路由配置
     ├── store  Vuex配置
     ├── view  页面文件
+    └── assets  项目静态资源
 ```

@@ -2,7 +2,7 @@
 let proxyObj = {}
 
 /*拦截Http请求 */
-proxyObj['/'] = {
+proxyObj['/permission'] = {
     ws: false,
     /* 目标的转发地址，就是将拦截的Http请求转发到哪里去 */
     target: 'http://localhost:8001',
@@ -10,7 +10,7 @@ proxyObj['/'] = {
     /* 请求地址要不要重写 */
     pathRewrite: {
         /* 不修改 */
-        '^/': ''
+        '^/permission': ''
     }
 }
 

@@ -1,10 +1,11 @@
 <template>
     <div>
-        basic大萨达所多撒
+        EmpBasic
     </div>
 </template>
 
 <script>
+
     export default {
         name: "basic"
     }
