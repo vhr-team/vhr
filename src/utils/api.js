@@ -1,5 +1,5 @@
 import axios from "axios"
-import {Message} from 'element-ui';
+import {Message} from "view-design";
 
 /* 响应拦截器 */
 axios.interceptors.response.use(success => {
