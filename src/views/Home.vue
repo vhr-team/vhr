@@ -77,6 +77,7 @@
             </Sider>
 
             <Layout>
+
                 <!-- 头部区域-->
                 <Header :style="{padding: 0}" class="layout-header-bar">
                     <Icon @click.native="collapsedSider" :class="rotateIcon"
@@ -100,15 +101,14 @@
                     <!-- 面包屑导航 -->
                     <Breadcrumb :style="{display: 'inline-block'}">
                         <BreadcrumbItem to="/home">
-                            <Icon type="ivu-icon ivu-icon-md-home"></Icon>
-                            首 页
+                            <Icon type="ivu-icon ivu-icon-md-home"></Icon> 首 页
                         </BreadcrumbItem>
-                        <BreadcrumbItem to="/components/breadcrumb">
-                            <Icon type="logo-buffer"></Icon>
-                            Components
+                        <BreadcrumbItem v-show="this.$router.currentRoute.path!='/home'">
+                            <Icon type="logo-buffer"></Icon> {{this.$router.currentRoute.name}}
                         </BreadcrumbItem>
                     </Breadcrumb>
                 </Header>
+
                 <!-- 右侧内容区域 -->
                 <Content :style="{margin: '20px', background: '#fff'}">
                     <router-view/>
