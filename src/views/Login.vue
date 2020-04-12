@@ -44,9 +44,9 @@
                                     this.$router.replace("/home");
                                 },1000);
                             }
-                        })
+                        });
                     } else {
-                        this.$message.error('请填写所有的信息进行登录！');
+                        this.$Message.error('请填写所有的信息进行登录！');
                         return false;
                     }
                 });
