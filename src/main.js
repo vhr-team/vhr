@@ -7,8 +7,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 /* ViewUI */
 import ViewUI from 'view-design';
+import iView from 'iview'
 import 'view-design/dist/styles/iview.css';
 
+/* 导入自定义的api get post delete put*/
 import {postKeyValueRequest} from "./utils/api";
 import {postRequest} from "./utils/api";
 import {putRequest} from "./utils/api";
@@ -16,6 +18,11 @@ import {getRequest} from "./utils/api";
 import {deleteRequest} from "./utils/api";
 
 import {initMenu} from "./utils/menus";
+
+Vue.use(ElementUI);
+Vue.use(ViewUI);
+Vue.use(iView);
+
 
 Vue.prototype.postKeyValueRequest = postKeyValueRequest;
 Vue.prototype.postRequest = postRequest;
@@ -33,9 +40,7 @@ Vue.prototype.$Notice.config({
     duration: 3
 });
 
-Vue.use(ElementUI);
-Vue.use(ViewUI);
-
+/* 路由守卫 */
 router.beforeEach((to, from, next) => {
     if (to.path == '/') {
         next();
