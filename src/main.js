@@ -32,12 +32,12 @@ Vue.prototype.deleteRequest = deleteRequest;
 
 Vue.config.productionTip = false;
 Vue.prototype.$Message.config({
-    top: 100,
-    duration: 3
+    top: 150,
+    duration: 5
 });
 Vue.prototype.$Notice.config({
-    top: 50,
-    duration: 3
+    top: 150,
+    duration: 5
 });
 
 /* 路由守卫 */
