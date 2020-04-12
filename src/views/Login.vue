@@ -40,6 +40,10 @@
                             if (resp) {
                                 window.sessionStorage.setItem("user", JSON.stringify(resp.data));
                                 setTimeout(()=>{
+                                    this.$Notice.success({
+                                        title: 'Notification title',
+                                        desc: true ? '' : 'Here is the notification description. Here is the notification description. '
+                                    });
                                     /* 跳转页面 */
                                     this.$router.replace("/home");
                                 },1000);

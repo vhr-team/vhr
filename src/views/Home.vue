@@ -78,26 +78,27 @@
             </Sider>
 
             <Layout>
-                <!-- 右侧头部区域-->
+                <!-- 头部区域-->
                 <Header :style="{padding: 0}" class="layout-header-bar">
                     <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu"
                           size="24"></Icon>
 
+                    <!-- 首页按钮 -->
                     <el-link icon="ivu-icon ivu-icon-md-home" href="#/home" :underline="false"> 首 页</el-link>
 
-                    <el-dropdown class="UserDropMenu" @command="commandandler">
-                      <span class="el-dropdown-link">
-                        {{user.name}}
-                          <i class="el-icon-arrow-down el-icon--right">
-                            <Avatar style="margin-left: 10px;" :src="user.userface"/>
-                          </i>
-                      </span>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item command="userinfo">个人中心</el-dropdown-item>
-                            <el-dropdown-item command="setting">设置</el-dropdown-item>
-                            <el-dropdown-item command="logout" divided>退出</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
+                    <Dropdown class="UserDropMenu" @on-click="changeMenu">
+                        <a href="javascript:void(0)">
+                            {{user.name}}
+                            <Icon type="ios-arrow-down"></Icon>
+                            <!-- 用户头像 -->
+                            <Avatar style="margin-left: 10px;margin-top: -5px;" :src="user.userface"/>
+                        </a>
+                        <DropdownMenu slot="list">
+                            <DropdownItem name="userinfo"> 个人中心 </DropdownItem>
+                            <DropdownItem name="setting"> 设置 </DropdownItem>
+                            <DropdownItem name="logout" divided> 退出 </DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
                 </Header>
 
                 <!-- 右侧内容区域 -->
@@ -140,14 +141,8 @@
             }
         },
         methods: {
-            collapsedSider() {
-                this.$refs.side1.toggleCollapse();
-            },
-            handleSelect(key, keyPath) {
-                console.log(key, keyPath);
-            },
-            commandandler(cmd) {
-                if (cmd == 'logout') {
+            changeMenu(name) {
+                if (name == 'logout') {
                     this.$confirm('此操作将注销登录, 是否继续?', '提示', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
@@ -166,12 +161,21 @@
                         });
                     });
                 }
-            }
+            },
+            collapsedSider() {
+                this.$refs.side1.toggleCollapse();
+            },
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+            },
         }
     }
 </script>
 
 <style scoped>
+    .ivu-dropdown-item[data-v-fae5bece]{
+        color: #515a6e !important;
+    }
 
     .el-dropdown-link {
         cursor: pointer;
