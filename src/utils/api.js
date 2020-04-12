@@ -9,22 +9,22 @@ axios.interceptors.response.use(success => {
         return;
     }
     if(success.data.msg){
-        Message.success({message: success.data.msg});
+        Message.success(success.data.msg);
     }
     return success.data;
 }, error => {
     /* 服务器没找到 */
     if (error.response.status == 504 || error.response.status == 404) {
-        Message.error({message: "服务器到火星去了!"})
+        Message.error("服务器到火星去了!")
     } else if (error.response.status == 403) {
-        Message.error({message: "权限不足,请联系管理员!"})
+        Message.error("权限不足,请联系管理员!")
     } else if (error.response.status == 401) {
-        Message.error({message: "尚未登录,请登录!"})
+        Message.error("尚未登录,请登录!")
     } else {
         if (error.response.data.msg) {
-            Message.error({message: error.response.data.msg})
+            Message.error(error.response.data.msg)
         } else {
-            Message.error({message: "未知错误!"})
+            Message.error("未知错误!")
         }
     }
     return;
