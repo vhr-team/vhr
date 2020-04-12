@@ -155,8 +155,8 @@
                     }).then(() => {
                         this.getRequest("/permission/logout");
                         window.sessionStorage.removeItem("user");
+                        /* 用户注销了，菜单数据清空 */
                         this.$store.commit("initRoutes", []);
-
                         /* 注销了，重新跳转回登录*/
                         this.$router.replace("/");
                     }).catch(() => {
