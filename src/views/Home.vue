@@ -80,11 +80,21 @@
             <Layout>
                 <!-- 头部区域-->
                 <Header :style="{padding: 0}" class="layout-header-bar">
-                    <a style="color:#000;" href="javascript:;"><Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu"
-                             size="24"></Icon></a>
+                    <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px',cursor: 'pointer'}" type="md-menu"
+                          size="24"></Icon>
 
                     <!-- 首页按钮 -->
-                    <el-link icon="ivu-icon ivu-icon-md-home" href="#/home" :underline="false"> 首 页</el-link>
+                    <!--<Breadcrumb>
+                        <BreadcrumbItem to="/home">
+                            <Icon type="ivu-icon ivu-icon-md-home"></Icon> 首 页
+                        </BreadcrumbItem>
+                        <BreadcrumbItem to="/components/breadcrumb">
+                            <Icon type="logo-buffer"></Icon> Components
+                        </BreadcrumbItem>
+                        <BreadcrumbItem>
+                            <Icon type="ios-cafe"></Icon> Breadcrumb
+                        </BreadcrumbItem>
+                    </Breadcrumb>-->
 
                     <Dropdown class="UserDropMenu" @on-click="changeMenu">
                         <a href="javascript:void(0)">
@@ -102,9 +112,11 @@
                 </Header>
 
                 <!-- 右侧内容区域 -->
-                <Content :style="{margin: '20px', background: '#fff', minHeight: '260px'}">
+                <Content :style="{margin: '20px', background: '#fff'}">
                     <router-view/>
                 </Content>
+
+                <Footer class="layout-footer-center">Copyright © 2020 Vhr. All Rights Reserved.</Footer>
             </Layout>
         </Layout>
     </div>
@@ -173,6 +185,19 @@
 </script>
 
 <style scoped>
+    .ivu-dropdown-item[data-v-fae5bece][data-v-fae5bece]{
+        color: #b3b9ac !important;
+        background-color: #000c17;
+    }
+    .ivu-menu-vertical .ivu-menu-item:hover, .ivu-menu-vertical .ivu-menu-submenu-title:hover{
+        color: #fff !important;
+    }
+    .layout-footer-center{
+        height: 0px;
+        line-height: 0px;
+        text-align: center;
+        margin-top: -10px;
+    }
     .ivu-dropdown-item[data-v-fae5bece]{
         color: #515a6e !important;
     }
