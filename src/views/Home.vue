@@ -80,8 +80,8 @@
             <Layout>
                 <!-- 头部区域-->
                 <Header :style="{padding: 0}" class="layout-header-bar">
-                    <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu"
-                          size="24"></Icon>
+                    <a style="color:#000;" href="javascript:;"><Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu"
+                             size="24"></Icon></a>
 
                     <!-- 首页按钮 -->
                     <el-link icon="ivu-icon ivu-icon-md-home" href="#/home" :underline="false"> 首 页</el-link>
@@ -173,9 +173,6 @@
 </script>
 
 <style scoped>
-    .ivu-dropdown-item[data-v-fae5bece][data-v-fae5bece]{
-        color: #b3b9ac !important;
-    }
     .ivu-dropdown-item[data-v-fae5bece]{
         color: #515a6e !important;
     }

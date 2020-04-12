@@ -14,6 +14,7 @@
                     <Icon type="ios-lock-outline" slot="prepend"></Icon>
                 </Input>
             </FormItem>
+            <el-checkbox label="记住密码" name="type" v-model="checked"></el-checkbox>
             <FormItem>
                 <Button class="loginBtn" type="primary" @click="submitLogin"> 登 录</Button>
             </FormItem>
