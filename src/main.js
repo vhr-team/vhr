@@ -24,6 +24,14 @@ Vue.prototype.getRequest = getRequest;
 Vue.prototype.deleteRequest = deleteRequest;
 
 Vue.config.productionTip = false;
+Vue.prototype.$Message.config({
+    top: 100,
+    duration: 3
+});
+Vue.prototype.$Notice.config({
+    top: 50,
+    duration: 3
+});
 
 Vue.use(ElementUI);
 Vue.use(ViewUI);
