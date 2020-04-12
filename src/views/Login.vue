@@ -1,17 +1,23 @@
 <template>
     <div>
-        <el-form :rules="rules" ref="loginForm" :model="loginForm" class="loginContainer">
+        <Form ref="loginForm" :model="loginForm" :rules="rules" inline class="loginContainer">
             <h3 class="loginTitle">系统登录</h3>
-            <el-form-item prop="username">
-                <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="请输入用户名"></el-input>
-            </el-form-item>
-            <el-form-item prop="password">
-                <el-input type="password" v-model="loginForm.password" auto-complete="off"
-                          placeholder="请输入密码"></el-input>
-            </el-form-item>
-            <el-checkbox label="记住密码" name="type" v-model="checked"></el-checkbox>
-            <el-button class="loginBtn" type="primary" style="width: 100%;" @click="submitLogin">登录</el-button>
-        </el-form>
+            <FormItem prop="username">
+                <Input auto-complete="off" type="text" v-model="loginForm.username" placeholder="请输入用户名">
+                    <Icon type="ios-person-outline" slot="prepend"></Icon>
+                </Input>
+            </FormItem>
+
+            <FormItem prop="password">
+                <Input auto-complete="off" type="password" @keyup.enter.native="submitLogin" v-model="loginForm.password"
+                       placeholder="请输入密码">
+                    <Icon type="ios-lock-outline" slot="prepend"></Icon>
+                </Input>
+            </FormItem>
+            <FormItem>
+                <Button class="loginBtn" type="primary" @click="submitLogin"> 登 录</Button>
+            </FormItem>
+        </Form>
     </div>
 </template>
 
@@ -87,6 +93,10 @@
 </script>
 
 <style scoped>
+    .ivu-form-item, .loginBtn {
+        width: 100%;
+    }
+
     .loginContainer {
         border-radius: 15px;
         background-clip: padding-box;

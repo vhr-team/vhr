@@ -173,28 +173,26 @@
 </script>
 
 <style scoped>
+    .ivu-dropdown-item[data-v-fae5bece][data-v-fae5bece]{
+        color: #b3b9ac !important;
+    }
     .ivu-dropdown-item[data-v-fae5bece]{
         color: #515a6e !important;
     }
-
     .el-dropdown-link {
         cursor: pointer;
         color: #409EFF;
     }
-
     .el-icon-arrow-down {
         font-size: 12px;
     }
-
     .UserDropMenu {
         position: absolute;
         right: 30px;
     }
-
     .ivu-menu-dark {
         background: #001529;
     }
-
     .layout-logo {
         height: 30px;
         border-radius: 3px;
@@ -208,57 +206,44 @@
         font-family: 华文行楷;
         text-align: center;
     }
-
     .ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item {
         background: #000c17 !important;
     }
-
     .ivu-dropdown-item {
         background: #fff;
         color: #b3b9ac !important;
     }
-
     .ivu-menu-light, .ivu-menu-vertical, .ivu-menu-item-active:not(.ivu-menu-submenu) {
         color: #b3b9ac !important;
         background: none !important;
         z-index: 2;
     }
-
     .ivu-menu-item:hover {
         color: #fff !important;
     }
-
     .ivu-menu-vertical {
         color: #b3b9ac !important;
     }
-
     .ivu-menu-submenu-title:hover {
         color: #fff !important;
     }
-
     .ivu-menu-vertical .ivu-menu-submenu-title:hover {
         color: #fff;
     }
-
-
     .ivu-menu-light {
         background: #000c17;
     }
-
     .iview-ui-sider {
         background: #001529;
     }
-
     .layout {
         position: relative;
         overflow: hidden;
     }
-
     .layout-header-bar {
         background: #fff;
         box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
     }
-
     .layout-logo-left {
         width: 90%;
         height: 30px;
@@ -266,15 +251,12 @@
         border-radius: 3px;
         margin: 15px auto;
     }
-
     .menu-icon {
         transition: all .3s;
     }
-
     .rotate-icon {
         transform: rotate(-90deg);
     }
-
     .menu-item span {
         display: inline-block;
         overflow: hidden;
@@ -284,19 +266,16 @@
         vertical-align: bottom;
         transition: width .2s ease .2s;
     }
-
     .menu-item i {
         transform: translateX(0px);
         transition: font-size .2s ease, transform .2s ease;
         vertical-align: middle;
         font-size: 16px;
     }
-
     .collapsed-menu span {
         width: 0px;
         transition: width .2s ease;
     }
-
     .collapsed-menu i {
         transform: translateX(5px);
         transition: font-size .2s ease .2s, transform .2s ease .2s;
