@@ -4,7 +4,6 @@
             <!-- 左侧侧边栏 -->
             <Sider class="iview-ui-sider" ref="side1" hide-trigger collapsible :collapsed-width="78"
                    v-model="isCollapsed">
-
                 <Menu mode="horizontal" theme="dark" active-name="1">
                     <div class="layout-logo">
                         微人事
@@ -80,21 +79,9 @@
             <Layout>
                 <!-- 头部区域-->
                 <Header :style="{padding: 0}" class="layout-header-bar">
-                    <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px',cursor: 'pointer'}" type="md-menu"
+                    <Icon @click.native="collapsedSider" :class="rotateIcon"
+                          :style="{margin: '0 20px',cursor: 'pointer'}" type="md-menu"
                           size="24"></Icon>
-
-                    <!-- 首页按钮 -->
-                    <!--<Breadcrumb>
-                        <BreadcrumbItem to="/home">
-                            <Icon type="ivu-icon ivu-icon-md-home"></Icon> 首 页
-                        </BreadcrumbItem>
-                        <BreadcrumbItem to="/components/breadcrumb">
-                            <Icon type="logo-buffer"></Icon> Components
-                        </BreadcrumbItem>
-                        <BreadcrumbItem>
-                            <Icon type="ios-cafe"></Icon> Breadcrumb
-                        </BreadcrumbItem>
-                    </Breadcrumb>-->
 
                     <Dropdown class="UserDropMenu" @on-click="changeMenu">
                         <a href="javascript:void(0)">
@@ -104,13 +91,24 @@
                             <Avatar style="margin-left: 10px;margin-top: -5px;" :src="user.userface"/>
                         </a>
                         <DropdownMenu slot="list">
-                            <DropdownItem name="userinfo"> 个人中心 </DropdownItem>
-                            <DropdownItem name="setting"> 设置 </DropdownItem>
-                            <DropdownItem name="logout" divided> 退出 </DropdownItem>
+                            <DropdownItem name="userinfo"> 个人中心</DropdownItem>
+                            <DropdownItem name="setting"> 设置</DropdownItem>
+                            <DropdownItem name="logout" divided> 退出</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                </Header>
 
+                    <!-- 面包屑导航 -->
+                    <Breadcrumb :style="{display: 'inline-block'}">
+                        <BreadcrumbItem to="/home">
+                            <Icon type="ivu-icon ivu-icon-md-home"></Icon>
+                            首 页
+                        </BreadcrumbItem>
+                        <BreadcrumbItem to="/components/breadcrumb">
+                            <Icon type="logo-buffer"></Icon>
+                            Components
+                        </BreadcrumbItem>
+                    </Breadcrumb>
+                </Header>
                 <!-- 右侧内容区域 -->
                 <Content :style="{margin: '20px', background: '#fff'}">
                     <router-view/>
@@ -184,37 +182,30 @@
     }
 </script>
 
-<style scoped>
-    .ivu-dropdown-item[data-v-fae5bece][data-v-fae5bece]{
-        color: #b3b9ac !important;
-        background-color: #000c17;
+<style>
+    .ivu-dropdown-item {
+        color: #515a6e !important;
     }
-    .ivu-menu-vertical .ivu-menu-item:hover, .ivu-menu-vertical .ivu-menu-submenu-title:hover{
-        color: #fff !important;
-    }
-    .layout-footer-center{
+
+    /* 版权信息的样式 */
+    .layout-footer-center {
         height: 0px;
         line-height: 0px;
         text-align: center;
         margin-top: -10px;
     }
-    .ivu-dropdown-item[data-v-fae5bece]{
-        color: #515a6e !important;
-    }
-    .el-dropdown-link {
-        cursor: pointer;
-        color: #409EFF;
-    }
-    .el-icon-arrow-down {
-        font-size: 12px;
-    }
+
+    /* 用户信息的样式【头部】右侧*/
     .UserDropMenu {
         position: absolute;
         right: 30px;
     }
+
+    /* 菜单背景样式 */
     .ivu-menu-dark {
-        background: #001529;
+        background: #001529 !important;
     }
+
     .layout-logo {
         height: 30px;
         border-radius: 3px;
@@ -228,50 +219,49 @@
         font-family: 华文行楷;
         text-align: center;
     }
+
     .ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item {
         background: #000c17 !important;
     }
-    .ivu-dropdown-item {
-        background: #fff;
-        color: #b3b9ac !important;
-    }
+
     .ivu-menu-light, .ivu-menu-vertical, .ivu-menu-item-active:not(.ivu-menu-submenu) {
         color: #b3b9ac !important;
         background: none !important;
         z-index: 2;
     }
+
     .ivu-menu-item:hover {
         color: #fff !important;
     }
+
     .ivu-menu-vertical {
         color: #b3b9ac !important;
     }
+
     .ivu-menu-submenu-title:hover {
         color: #fff !important;
     }
+
     .ivu-menu-vertical .ivu-menu-submenu-title:hover {
         color: #fff;
     }
+
     .ivu-menu-light {
         background: #000c17;
     }
+
     .iview-ui-sider {
-        background: #001529;
+        background: #001529 !important;
     }
-    .layout {
-        position: relative;
-        overflow: hidden;
+
+    .ivu-dropdown-item:hover {
+        background: none;
     }
+
+    /* 系统的样式 */
     .layout-header-bar {
-        background: #fff;
+        background: #fff !important;
         box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-    }
-    .layout-logo-left {
-        width: 90%;
-        height: 30px;
-        background: #5b6270;
-        border-radius: 3px;
-        margin: 15px auto;
     }
     .menu-icon {
         transition: all .3s;
@@ -279,6 +269,7 @@
     .rotate-icon {
         transform: rotate(-90deg);
     }
+
     .menu-item span {
         display: inline-block;
         overflow: hidden;
@@ -288,16 +279,19 @@
         vertical-align: bottom;
         transition: width .2s ease .2s;
     }
+
     .menu-item i {
         transform: translateX(0px);
         transition: font-size .2s ease, transform .2s ease;
         vertical-align: middle;
         font-size: 16px;
     }
+
     .collapsed-menu span {
         width: 0px;
         transition: width .2s ease;
     }
+
     .collapsed-menu i {
         transform: translateX(5px);
         transition: font-size .2s ease .2s, transform .2s ease .2s;
