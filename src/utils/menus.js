@@ -4,7 +4,7 @@ export const initMenu = (router, store) => {
     if (store.state.routes.length > 0) {
         return;
     }
-    getRequest("/permission/menu/loadLeftMenuJsonByUid").then(data => {
+    getRequest("/permission/system/cfg/loadLeftMenuJsonByUid").then(data => {
         if (data) {
             let fmtRoutes = formatRoutes(data);
             router.addRoutes(fmtRoutes);

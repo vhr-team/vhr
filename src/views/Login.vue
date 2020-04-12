@@ -9,7 +9,8 @@
             </FormItem>
 
             <FormItem prop="password">
-                <Input auto-complete="off" type="password" @keyup.enter.native="submitLogin" v-model="loginForm.password"
+                <Input auto-complete="off" type="password" @keyup.enter.native="submitLogin"
+                       v-model="loginForm.password"
                        placeholder="请输入密码">
                     <Icon type="ios-lock-outline" slot="prepend"></Icon>
                 </Input>
@@ -56,8 +57,9 @@
                                             ])
                                         }
                                     });
+                                    let path = this.$route.query.redirect;
                                     /* 跳转页面 */
-                                    this.$router.replace("/home");
+                                    this.$router.replace((path == '/' || path == undefined) ? "/home" : path);
                                 }, 1000);
                             }
                         });

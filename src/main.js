@@ -42,11 +42,18 @@ Vue.prototype.$Notice.config({
 
 /* 路由守卫 */
 router.beforeEach((to, from, next) => {
+    /* 访问的是登录 */
     if (to.path == '/') {
         next();
     } else {
-        initMenu(router, store);
-        next();
+        // 访问的不是登录，就去window.sessionStorage获取用户信息，如果有就是登录状态
+        if (window.sessionStorage.getItem("user")) {
+            initMenu(router, store);
+            next();
+        } else {
+            // 如果没有获取到，重新到登录页面进行登录,或者是输入的地址
+            next('/?redirect=' + to.path);
+        }
     }
 })
 
