@@ -29,4 +29,4 @@ npm run build
     └── assets  项目静态资源
 ```
 
-https://blog-static.cnblogs.com/files/TangXiaoHuiHui/1.gif
+![avatar](https://blog-static.cnblogs.com/files/TangXiaoHuiHui/1.gif)
