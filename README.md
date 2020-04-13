@@ -28,3 +28,5 @@ npm run build
     ├── view  页面文件
     └── assets  项目静态资源
 ```
+
+https://blog-static.cnblogs.com/files/TangXiaoHuiHui/1.gif
